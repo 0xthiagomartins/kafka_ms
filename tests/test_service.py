@@ -1,6 +1,7 @@
 import pytest
 from nameko.testing.services import worker_factory
 from src.service import MicroServiceA
+from src.config import config
 
 
 def test_method_A():

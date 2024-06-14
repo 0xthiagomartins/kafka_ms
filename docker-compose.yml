@@ -1,15 +1,17 @@
 version: '3'
 services:
-  nameko_microservice:
+  micro_service_A:
     build: .
     command: nameko run --config src/config.yml src.service
     volumes:
       - .:/app
     environment:
       KAFKA_BOOTSTRAP_SERVERS: "kafka:9092"
+      SERVICE_NAME: "micro_service_A"
+      TOPIC_NAME: "example_topic"
     networks:
-      - kafka_network
+      - backend
 
 networks:
-  kafka_network:
+  backend:
     external: true
