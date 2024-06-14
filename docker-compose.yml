@@ -1,6 +1,6 @@
 version: '3'
 services:
-  micro_service_A:
+  kafka_ms:
     build: .
     command: nameko run --config src/config.yml src.service
     volumes:

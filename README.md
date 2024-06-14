@@ -1,3 +1,4 @@
+
 # Microservice Template with Kafka Integration
 
 ## Introduction
@@ -26,33 +27,37 @@ This template provides a basic structure for a microservice using Nameko with Ka
 
 ### Running the Microservice
 
-1. Build and start the microservice using Docker Compose:
+1. Create the external network (if it doesn't already exist):
+
+   ```bash
+   docker network create kafka_network
+   ```
+
+2. Build and start the microservice using Docker Compose:
 
    ```bash
    docker-compose up --build
    ```
 
-2. The microservice will connect to the Kafka and Zookeeper instances on the configured network.
+3. The microservice will connect to the Kafka and Zookeeper instances on the configured network.
 
 ### Configuration
 
-src/config.yml contains the default configuration for Kafka bootstrap servers, service name, and topic name.
-Environment variables can override these defaults when running the service.
+- `src/config.yml` contains the default configuration for Kafka bootstrap servers, service name, and topic name.
+- Environment variables can override these defaults when running the service.
 
 ### Example Usage
 
-The MicroServiceA class in src/service.py demonstrates how to produce and consume messages using Kafka within a Nameko service.
+- The `MicroServiceA` class in `src/service.py` demonstrates how to produce and consume messages using Kafka within a Nameko service.
 
 ### Testing
 
-Run tests using the provided script:
+- Run tests using the provided script:
 
-    ```bash
-    ./run.sh
-    ```
+  ```bash
+  ./run.sh
+  ```
 
-### Conclusion 
+## Conclusion
 
 This template provides a starting point for developing Kafka-integrated microservices with Nameko. Modify the provided code and configurations to suit your specific requirements.
-
-This setup centralizes configuration using config.yml and environment variables, ensuring consistency across different environments. Adjust the configurations and scripts as needed.
